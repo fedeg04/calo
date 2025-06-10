@@ -4,12 +4,16 @@ body {
   padding: 0;
   background: #f5f7fa;
   color: #333;
+  scroll-behavior: smooth;
 }
 
 header {
   background: #003f66;
   color: white;
   padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 header .container {
@@ -24,7 +28,7 @@ header .container {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   margin: 0;
   padding: 0;
 }
@@ -33,29 +37,50 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #00c3ff;
 }
 
 .hero {
-  background: url('https://images.unsplash.com/photo-1581090700227-1e8e1f10d12b?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://images.unsplash.com/photo-1581090700227-1e8e1f10d12b?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
   color: white;
   text-align: center;
-  padding: 6rem 1rem;
+  padding: 8rem 1rem;
 }
 
 .hero h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: auto;
 }
 
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 2rem 1rem;
+  padding: 4rem 1rem;
 }
 
 h3 {
   color: #003f66;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.servicios, .clientes, .marcas, .contacto, .nosotros {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 3rem;
+  padding: 2rem;
 }
 
 .servicios ul,
@@ -66,17 +91,24 @@ h3 {
 
 .servicios li,
 .clientes li {
-  background: white;
-  margin-bottom: 0.5rem;
+  background: #f0f4f8;
+  margin-bottom: 0.75rem;
   padding: 0.75rem 1rem;
   border-left: 4px solid #0077cc;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border-radius: 4px;
+}
+
+.marcas p {
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .contact-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .btn-whatsapp,
@@ -88,6 +120,7 @@ h3 {
   font-weight: bold;
   border-radius: 5px;
   transition: background 0.3s;
+  display: inline-block;
 }
 
 .btn-whatsapp:hover,
@@ -99,6 +132,24 @@ footer {
   background: #002f4d;
   color: white;
   text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .contact-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
